@@ -147,14 +147,20 @@ footer {
 
   .game-data {
     height: auto;
-    width: auto;
+    width: 99%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;
   }
+  .num-of-tries {
+    width: 110px;
+    height: auto;
+    margin-left: 1rem;
+  }
   .reset {
     margin-left: 90px;
     margin-right: 2px;
+    margin-right: 1rem;
   }
 }

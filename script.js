@@ -3,6 +3,8 @@ const parentContainer = document.querySelector(".parent-container");
 const resetBtn = document.querySelector(".reset");
 const triesCount = document.querySelector(".tries-count");
 const winnerText = document.querySelector(".winner");
+const gameResultDiv = document.querySelector(".game-result");
+const closeWindowMark = document.querySelector(".cross-mark");
 const allAnimals = [
   "🦁",
   "🐅",
@@ -124,7 +126,11 @@ function flipTheTile(tile, previousTile) {
         }
       );
       winnerText.classList.remove("hidden");
+      gameResultDiv.classList.remove("hidden");
 
+      setTimeout(function () {
+        gameResultDiv.classList.add("hidden");
+      }, 5000);
       allTiles.forEach((tile) => {
         gsap.fromTo(
           tile,
@@ -256,6 +262,11 @@ resetBtn.addEventListener("click", function () {
     previousTile.length = 0;
     numberOfTries = 0;
     clicks = 0;
+    gameResultDiv.classList.add("hidden");
   });
   insertAnimalsIntoRandomTiles();
+});
+
+closeWindowMark.addEventListener("click", function () {
+  gameResultDiv.classList.add("hidden");
 });

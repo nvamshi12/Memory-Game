@@ -116,7 +116,34 @@ h1 {
 footer {
   margin-top: 1.2rem;
 }
-
+.game-result {
+  position: absolute;
+  top: 50;
+  left: 50;
+  bottom: 50;
+  z-index: 10;
+  height: 55%;
+  width: 60%;
+  margin-top: 6rem;
+  background-color: rgb(211, 248, 246);
+  align-content: center;
+}
+.game-result p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.game-over {
+  background: linear-gradient(to left, rgb(247, 7, 7), blueviolet);
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+.cross-mark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+}
 @media (max-width: 1000px) {
   * {
     box-sizing: border-box;
@@ -162,8 +189,6 @@ footer {
     font-size: 1.3rem;
   }
   .reset {
-    margin-left: 90px;
-    margin-right: 2px;
     margin-right: 0.8rem;
   }
 }

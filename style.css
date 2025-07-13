@@ -61,9 +61,11 @@ h1 {
   height: auto;
   width: 100px;
   font-size: 1rem;
+  color: black;
   padding: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
+  border: 1.5px solid black;
   border-radius: 1.5rem;
   font-weight: 550;
   margin-left: 1rem;
@@ -122,7 +124,7 @@ h1 {
     cursor: pointer;
     background-color: rgba(15, 15, 250, 0.767);
     background-color: rgb(249, 79, 49);
-
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.505);
     /* box-shadow: 1px 2px 10px rgba(255, 0, 0, 0.638);
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.213); */
   }
@@ -223,8 +225,8 @@ footer {
   .easy,
   .medium,
   .hard {
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   .tile {
     height: 85px;

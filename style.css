@@ -140,12 +140,14 @@ h1 {
 .tile {
   height: 95px;
   width: 105px;
-  background-color: blueviolet;
   cursor: pointer;
   font-size: 3.1rem;
   align-content: center;
   text-align: center;
   text-shadow: 0.3px 0.3px 0.3px white;
+}
+.easy-tile {
+  background-color: blueviolet;
 }
 .medium-tile {
   background-color: rgb(155, 152, 240);

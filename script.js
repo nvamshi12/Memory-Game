@@ -129,7 +129,6 @@ const hardTilesHTML = `<div class="tile" data-id="1"></div>
 
 const resetBtn = document.querySelector(".reset");
 const triesCount = document.querySelector(".tries-count");
-const winnerText = document.querySelector(".winner");
 const gameResultDiv = document.querySelector(".game-result");
 let closeWindowMark = document.querySelector(".cross-mark");
 const gameLevelButtonsDiv = document.querySelector(".game-hard-level");
@@ -250,22 +249,10 @@ function flipTheTile(tile, previousTile) {
     console.log(timeout);
     clearTimeout(timeout);
     if (checkIfWinner()) {
-      gsap.fromTo(
-        winnerText,
-        { scale: 1 },
-        {
-          scale: 1.8,
-          duration: 0.5,
-          yoyo: true,
-          repeat: 1,
-          ease: "power1.inOut",
-        }
-      );
       const gameResultHTML = `<p class="cross-mark">✖</p>
       <p>🥳 👏 Congratulations!! 🎉🎊</p>
       <p class="game-over">GAME OVER</p>
       <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
-      winnerText.classList.remove("hidden");
       gameResultDiv.innerHTML = gameResultHTML;
       gameResultDiv.classList.remove("hidden");
       closeWindowMark = document.querySelector(".cross-mark");
@@ -406,7 +393,6 @@ resetBtn.addEventListener("click", function () {
   numberOfTries = 0;
   previousTile.length = 0;
   triesCount.textContent = 0;
-  winnerText.classList.add("hidden");
   gameResultDiv.classList.add("hidden");
   easyBtnClicked();
   insertAnimalsIntoRandomTiles();
@@ -424,7 +410,7 @@ function whenAnyGameLevelButtonIsClicked() {
   numberOfTries = 0;
   previousTile.length = 0;
   triesCount.textContent = 0;
-  winnerText.classList.add("hidden");
+
   gameResultDiv.classList.add("hidden");
 
   insertAnimalsIntoRandomTiles();

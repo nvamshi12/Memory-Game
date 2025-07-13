@@ -94,15 +94,6 @@ h1 {
   margin: 0;
   padding-top: 0.3rem;
 }
-.winner {
-  font-size: 1.5rem;
-  color: rgb(252, 38, 0);
-  /* transform: scale(2); */
-  transition: transform ease 1s;
-  text-align: center;
-  margin: 0;
-}
-
 .tries-count {
   color: black;
   font-weight: 600;
@@ -242,15 +233,18 @@ footer {
     margin-top: 1rem;
   }
   .num-of-tries {
-    width: 110px;
+    width: auto;
     height: auto;
-    margin-left: 0.8rem;
+    margin-left: 1.5rem;
   }
   .tries-count {
     font-size: 1.3rem;
   }
   .reset {
-    margin-right: 0.8rem;
+    margin-right: 1.3rem;
+    width: auto;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
   }
   .game-result {
     position: fixed;

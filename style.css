@@ -147,7 +147,15 @@ h1 {
   text-align: center;
   text-shadow: 0.3px 0.3px 0.3px white;
 }
-
+.medium-tile {
+  background-color: rgb(155, 152, 240);
+  background-color: rgb(65, 32, 155);
+  /* background-color: powderblue; */
+}
+.hard-tile {
+  background-color: darkorchid;
+  background-color: darkblue;
+}
 .flipped {
   font-size: 3.1rem;
   background-color: limegreen;

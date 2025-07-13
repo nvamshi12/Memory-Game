@@ -13,7 +13,8 @@ body {
   align-items: center;
   justify-content: center;
   /* background-color: rgb(251, 122, 82); */
-  height: 100vh;
+  height: 100%;
+  max-height: fit-content;
   width: auto;
   margin: 0;
   padding: 0;
@@ -22,7 +23,7 @@ h1 {
   font-size: 2.5rem;
   /* color: brown; */
   margin: 0;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 1.3rem;
 }
 .header {
@@ -32,6 +33,48 @@ h1 {
   -webkit-text-fill-color: transparent;
   color: transparent;
   text-align: center;
+}
+.game-hard-level {
+  margin-bottom: 2rem;
+}
+.easy {
+  background-color: lime;
+  &:hover {
+    background-color: rgb(1, 248, 1);
+  }
+}
+.medium {
+  background-color: yellow;
+  &:hover {
+    background-color: rgb(248, 248, 1);
+  }
+}
+.hard {
+  background-color: orange;
+  &:hover {
+    background-color: rgb(246, 160, 0);
+  }
+}
+.easy,
+.medium,
+.hard {
+  height: auto;
+  width: 100px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1.5rem;
+  font-weight: 550;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.505);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
 }
 .game-data {
   display: flex;
@@ -73,9 +116,13 @@ h1 {
   border: none;
   color: white;
   background-color: rgba(0, 0, 255, 0.767);
+  background-color: tomato;
+  border: 1.5px solid black;
   &:hover {
     cursor: pointer;
     background-color: rgba(15, 15, 250, 0.767);
+    background-color: rgb(249, 79, 49);
+
     /* box-shadow: 1px 2px 10px rgba(255, 0, 0, 0.638);
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.213); */
   }
@@ -115,9 +162,10 @@ h1 {
 }
 footer {
   margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 .game-result {
-  position: absolute;
+  position: fixed;
   top: 50;
   left: 50;
   bottom: 50;
@@ -143,6 +191,7 @@ footer {
   top: 0;
   right: 0;
   margin: 0;
+  cursor: pointer;
 }
 @media (max-width: 1000px) {
   * {
@@ -167,6 +216,16 @@ footer {
     row-gap: 0.3rem;
     column-gap: 0.3rem;
   }
+  .game-hard-level {
+    margin-top: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .easy,
+  .medium,
+  .hard {
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+  }
   .tile {
     height: 85px;
     width: 90px;
@@ -190,5 +249,31 @@ footer {
   }
   .reset {
     margin-right: 0.8rem;
+  }
+  .game-result {
+    position: fixed;
+    top: 12%;
+    left: 50;
+    bottom: 20;
+    z-index: 10;
+    height: 55%;
+    width: 75%;
+    margin-top: 6rem;
+    background-color: rgb(192, 246, 243);
+    align-content: center;
+  }
+  .game-result p {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+  .cross-mark {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  footer {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
   }
 }

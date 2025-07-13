@@ -1,10 +1,141 @@
-const allTiles = document.querySelectorAll(".tile");
 const parentContainer = document.querySelector(".parent-container");
+const easyTilesHTML = `<div class="tile" data-id="1"></div>
+      <div class="tile" data-id="2"></div>
+      <div class="tile" data-id="3"></div>
+      <div class="tile" data-id="4"></div>
+      <div class="tile" data-id="5"></div>
+      <div class="tile" data-id="6"></div>
+      <div class="tile" data-id="7"></div>
+      <div class="tile" data-id="8"></div>
+      <div class="tile" data-id="9"></div>
+      <div class="tile" data-id="10"></div>
+      <div class="tile" data-id="11"></div>
+      <div class="tile" data-id="12"></div>
+      <div class="tile" data-id="13"></div>
+      <div class="tile" data-id="14"></div>
+      <div class="tile" data-id="15"></div>
+      <div class="tile" data-id="16"></div>
+      <div class="tile" data-id="17"></div>
+      <div class="tile" data-id="18"></div>
+      <div class="tile" data-id="19"></div>
+      <div class="tile" data-id="20"></div>
+      <div class="tile" data-id="21"></div>
+      <div class="tile" data-id="22"></div>
+      <div class="tile" data-id="23"></div>
+      <div class="tile" data-id="24"></div>`;
+const mediumTilesHTML = `
+      <div class="tile" data-id="1"></div>
+      <div class="tile" data-id="2"></div>
+      <div class="tile" data-id="3"></div>
+      <div class="tile" data-id="4"></div>
+      <div class="tile" data-id="5"></div>
+      <div class="tile" data-id="6"></div>
+      <div class="tile" data-id="7"></div>
+      <div class="tile" data-id="8"></div>
+      <div class="tile" data-id="9"></div>
+      <div class="tile" data-id="10"></div>
+      <div class="tile" data-id="11"></div>
+      <div class="tile" data-id="12"></div>
+      <div class="tile" data-id="13"></div>
+      <div class="tile" data-id="14"></div>
+      <div class="tile" data-id="15"></div>
+      <div class="tile" data-id="16"></div>
+      <div class="tile" data-id="17"></div>
+      <div class="tile" data-id="18"></div>
+      <div class="tile" data-id="19"></div>
+      <div class="tile" data-id="20"></div>
+      <div class="tile" data-id="21"></div>
+      <div class="tile" data-id="22"></div>
+      <div class="tile" data-id="23"></div>
+      <div class="tile" data-id="24"></div>
+      <div class="tile" data-id="25"></div>
+      <div class="tile" data-id="26"></div>
+      <div class="tile" data-id="27"></div>
+      <div class="tile" data-id="28"></div>
+      <div class="tile" data-id="29"></div>
+      <div class="tile" data-id="30"></div>
+      <div class="tile" data-id="31"></div>
+      <div class="tile" data-id="32"></div>
+      <div class="tile" data-id="33"></div>
+      <div class="tile" data-id="34"></div>
+      <div class="tile" data-id="35"></div>
+      <div class="tile" data-id="36"></div>
+      <div class="tile" data-id="37"></div>
+      <div class="tile" data-id="38"></div>
+      <div class="tile" data-id="39"></div>
+      <div class="tile" data-id="40"></div>
+      `;
+const hardTilesHTML = `<div class="tile" data-id="1"></div>
+      <div class="tile" data-id="2"></div>
+      <div class="tile" data-id="3"></div>
+      <div class="tile" data-id="4"></div>
+      <div class="tile" data-id="5"></div>
+      <div class="tile" data-id="6"></div>
+      <div class="tile" data-id="7"></div>
+      <div class="tile" data-id="8"></div>
+      <div class="tile" data-id="9"></div>
+      <div class="tile" data-id="10"></div>
+      <div class="tile" data-id="11"></div>
+      <div class="tile" data-id="12"></div>
+      <div class="tile" data-id="13"></div>
+      <div class="tile" data-id="14"></div>
+      <div class="tile" data-id="15"></div>
+      <div class="tile" data-id="16"></div>
+      <div class="tile" data-id="17"></div>
+      <div class="tile" data-id="18"></div>
+      <div class="tile" data-id="19"></div>
+      <div class="tile" data-id="20"></div>
+      <div class="tile" data-id="21"></div>
+      <div class="tile" data-id="22"></div>
+      <div class="tile" data-id="23"></div>
+      <div class="tile" data-id="24"></div>
+      <div class="tile" data-id="25"></div>
+      <div class="tile" data-id="26"></div>
+      <div class="tile" data-id="27"></div>
+      <div class="tile" data-id="28"></div>
+      <div class="tile" data-id="29"></div>
+      <div class="tile" data-id="30"></div>
+      <div class="tile" data-id="31"></div>
+      <div class="tile" data-id="32"></div>
+      <div class="tile" data-id="33"></div>
+      <div class="tile" data-id="34"></div>
+      <div class="tile" data-id="35"></div>
+      <div class="tile" data-id="36"></div>
+      <div class="tile" data-id="37"></div>
+      <div class="tile" data-id="38"></div>
+      <div class="tile" data-id="39"></div>
+      <div class="tile" data-id="40"></div>
+      <div class="tile" data-id="41"></div>
+      <div class="tile" data-id="42"></div>
+      <div class="tile" data-id="43"></div>
+      <div class="tile" data-id="44"></div>
+      <div class="tile" data-id="45"></div>
+      <div class="tile" data-id="46"></div>
+      <div class="tile" data-id="47"></div>
+      <div class="tile" data-id="48"></div>
+      <div class="tile" data-id="49"></div>
+      <div class="tile" data-id="50"></div>
+      <div class="tile" data-id="51"></div>
+      <div class="tile" data-id="52"></div>
+      <div class="tile" data-id="53"></div>
+      <div class="tile" data-id="54"></div>
+      <div class="tile" data-id="55"></div>
+      <div class="tile" data-id="56"></div>
+      <div class="tile" data-id="57"></div>
+      <div class="tile" data-id="58"></div>
+      <div class="tile" data-id="59"></div>
+      <div class="tile" data-id="60"></div>
+      `;
+
 const resetBtn = document.querySelector(".reset");
 const triesCount = document.querySelector(".tries-count");
 const winnerText = document.querySelector(".winner");
 const gameResultDiv = document.querySelector(".game-result");
-const closeWindowMark = document.querySelector(".cross-mark");
+let closeWindowMark = document.querySelector(".cross-mark");
+const gameLevelButtonsDiv = document.querySelector(".game-hard-level");
+const easyBtn = document.querySelector(".easy");
+const mediumBtn = document.querySelector(".medium");
+const hardBtn = document.querySelector(".hard");
 const allAnimals = [
   "🦁",
   "🐅",
@@ -65,13 +196,18 @@ const allAnimals = [
   "🦨",
   "🦥",
 ];
+const footer = document.querySelector("footer");
 let previousTile = [];
 let clicks = 0;
 let clicked = false;
 let timeout;
 let numberOfTries = 0;
+
+easyBtnClicked();
+const allTiles = document.querySelectorAll(".tile");
 parentContainer.addEventListener("click", function (e) {
   const tile = e.target;
+  console.log(tile);
 
   if (tile.classList.contains("tile")) {
     clicks++;
@@ -125,12 +261,18 @@ function flipTheTile(tile, previousTile) {
           ease: "power1.inOut",
         }
       );
+      const gameResultHTML = `<p class="cross-mark">✖</p>
+      <p>🥳 👏 Congratulations!! 🎉🎊</p>
+      <p class="game-over">GAME OVER</p>
+      <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
       winnerText.classList.remove("hidden");
+      gameResultDiv.innerHTML = gameResultHTML;
       gameResultDiv.classList.remove("hidden");
-
-      setTimeout(function () {
+      closeWindowMark = document.querySelector(".cross-mark");
+      closeWindowMark.addEventListener("click", function () {
         gameResultDiv.classList.add("hidden");
-      }, 5000);
+      });
+
       allTiles.forEach((tile) => {
         gsap.fromTo(
           tile,
@@ -199,6 +341,7 @@ insertAnimalsIntoRandomTiles();
 function insertAnimalsIntoRandomTiles() {
   let randomIndexArr = [];
   const uniqArr = getUniqueRandomNumbers(allTiles.length); // get 30 count of unique num's to pick random tile.
+  console.log(allTiles.length);
   const randArrForAnimals = getUniqueRandomNumbers(allAnimals.length); // get animals array length of unique num's to p[ick random animals
   console.log(randArrForAnimals);
 
@@ -259,14 +402,45 @@ resetBtn.addEventListener("click", function () {
     tile.textContent = "";
     tile.dataset.animal = "";
     tile.classList.remove("flipped");
-    previousTile.length = 0;
-    numberOfTries = 0;
-    clicks = 0;
-    gameResultDiv.classList.add("hidden");
   });
+  clicks = 0;
+  numberOfTries = 0;
+  previousTile.length = 0;
+  triesCount.textContent = 0;
+  winnerText.classList.add("hidden");
+  gameResultDiv.classList.add("hidden");
+  easyBtnClicked();
   insertAnimalsIntoRandomTiles();
+  window.location.reload();
 });
 
-closeWindowMark.addEventListener("click", function () {
-  gameResultDiv.classList.add("hidden");
+function moveToStartOfTiles() {
+  const bounds = parentContainer.getBoundingClientRect();
+  console.log(bounds);
+}
+moveToStartOfTiles();
+
+gameLevelButtonsDiv.addEventListener("click", function (e) {
+  if (e.target === easyBtn) {
+    easyBtnClicked();
+    footer.style.marginTop = "2rem";
+    gameLevelButtonsDiv.style.marginBottom = "2rem";
+  }
+  if (e.target === mediumBtn) {
+    mediumBtnClicked();
+    gameLevelButtonsDiv.style.margin = "0.8rem";
+  }
+  if (e.target === hardBtn) {
+    hardBtnClicked();
+    gameLevelButtonsDiv.style.margin = "0.8rem";
+  }
 });
+function easyBtnClicked() {
+  parentContainer.innerHTML = easyTilesHTML;
+}
+function mediumBtnClicked() {
+  parentContainer.innerHTML = mediumTilesHTML;
+}
+function hardBtnClicked() {
+  parentContainer.innerHTML = hardTilesHTML;
+}

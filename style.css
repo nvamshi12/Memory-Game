@@ -173,6 +173,9 @@ footer {
   text-align: center;
   font-size: 1.5rem;
 }
+.emojis {
+  font-size: 1.8rem;
+}
 .game-over {
   background: linear-gradient(to left, rgb(247, 7, 7), blueviolet);
   background-clip: text;

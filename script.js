@@ -250,8 +250,8 @@ function flipTheTile(tile, previousTile) {
     clearTimeout(timeout);
     if (checkIfWinner()) {
       const gameResultHTML = `<p class="cross-mark">✖</p>
-    <p>🥳 🎉 🎊 🍾</p>
-      <p>👏 Congratulations!!</p>
+    <p class="emojis">🥳 🎉 🎊 🍾</p>
+      <p>Congratulations!!</p>
       <p class="game-over">GAME OVER</p>
       <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
       gameResultDiv.innerHTML = gameResultHTML;

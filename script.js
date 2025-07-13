@@ -203,8 +203,8 @@ let clicked = false;
 let timeout;
 let numberOfTries = 0;
 
+let allTiles = document.querySelectorAll(".tile");
 easyBtnClicked();
-const allTiles = document.querySelectorAll(".tile");
 parentContainer.addEventListener("click", function (e) {
   const tile = e.target;
   console.log(tile);
@@ -332,7 +332,6 @@ function displayAnimalAndTimeout(tile, comingFrom) {
   // display animal and immediately hide
   timeout = setTimeout(() => {
     console.log(`ENTERED INTO TIMEOUT`);
-    console.log(comingFrom);
     tile.textContent = "";
   }, 1000);
 }
@@ -414,33 +413,45 @@ resetBtn.addEventListener("click", function () {
   window.location.reload();
 });
 
-function moveToStartOfTiles() {
-  const bounds = parentContainer.getBoundingClientRect();
-  console.log(bounds);
+function whenAnyGameLevelButtonIsClicked() {
+  allTiles = document.querySelectorAll(".tile");
+  allTiles.forEach((tile) => {
+    tile.textContent = "";
+    tile.dataset.animal = "";
+    tile.classList.remove("flipped");
+  });
+  clicks = 0;
+  numberOfTries = 0;
+  previousTile.length = 0;
+  triesCount.textContent = 0;
+  winnerText.classList.add("hidden");
+  gameResultDiv.classList.add("hidden");
+
+  insertAnimalsIntoRandomTiles();
 }
-moveToStartOfTiles();
 
 gameLevelButtonsDiv.addEventListener("click", function (e) {
   if (e.target === easyBtn) {
     easyBtnClicked();
     footer.style.marginTop = "2rem";
-    gameLevelButtonsDiv.style.marginBottom = "2rem";
   }
   if (e.target === mediumBtn) {
     mediumBtnClicked();
-    gameLevelButtonsDiv.style.margin = "0.8rem";
   }
   if (e.target === hardBtn) {
     hardBtnClicked();
-    gameLevelButtonsDiv.style.margin = "0.8rem";
   }
 });
 function easyBtnClicked() {
   parentContainer.innerHTML = easyTilesHTML;
+  whenAnyGameLevelButtonIsClicked();
 }
+
 function mediumBtnClicked() {
   parentContainer.innerHTML = mediumTilesHTML;
+  whenAnyGameLevelButtonIsClicked();
 }
 function hardBtnClicked() {
   parentContainer.innerHTML = hardTilesHTML;
+  whenAnyGameLevelButtonIsClicked();
 }

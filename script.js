@@ -251,11 +251,37 @@ function flipTheTile(tile, previousTile) {
     console.log(timeout);
     clearTimeout(timeout);
     if (checkIfWinner()) {
-      const gameResultHTML = `<p class="cross-mark">✖</p>
-    <p class="emojis">🥳 🎉 🎊 🍾</p>
-      <p>Congratulations!!</p>
-      <p class="game-over">GAME OVER</p>
-      <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
+      let gameResultHTML;
+      const allTilesArr = [...allTiles];
+      const isEasyGame = allTilesArr.every((tile) =>
+        tile.classList.contains("easy-tile")
+      );
+      const isMediumGame = allTilesArr.every((tile) =>
+        tile.classList.contains("medium-tile")
+      );
+      if (isEasyGame) {
+        gameResultHTML = `<p class="cross-mark">✖</p>
+      <p class="emojis">🥳 🎉 🎊 🍾</p>
+        <p>Congratulations!!</p>
+        <p class="game-over">GAME OVER</p>
+        <p class="game-level-display">Game Level: <span style="color:blueviolet;">EASY</span></p>
+        <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
+      } else if (isMediumGame) {
+        gameResultHTML = `<p class="cross-mark">✖</p>
+        <p class="emojis">🥳 🎉 🎊 🍾</p>
+          <p>Congratulations!!</p>
+          <p class="game-over">GAME OVER</p>
+          <p class="game-level-display">Game Level: <span style="color:rgb(93, 1, 132);">MEDIUM</span></p>
+          <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
+      } else {
+        gameResultHTML = `<p class="cross-mark">✖</p>
+        <p class="emojis">🥳 🎉 🎊 🍾</p>
+          <p>Congratulations!!</p>
+          <p class="game-over">GAME OVER</p>
+          <p class="game-level-display">Game Level: <span style="color:darkblue">HARD</span</p>
+          <p>Number of tries: <span class="tries-count">${numberOfTries}</span></p>`;
+      }
+
       gameResultDiv.innerHTML = gameResultHTML;
       gameResultDiv.classList.remove("hidden");
       closeWindowMark = document.querySelector(".cross-mark");
